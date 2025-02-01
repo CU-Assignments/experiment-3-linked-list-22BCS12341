@@ -1,1 +1,18 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Yyx6BftN)
+class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if (list1 == null) return list2;
+        if (list2 == null) return list1; 
+
+        if (list1.val < list2.val) {
+            list1.next = mergeTwoLists(list1.next, list2);
+            return list1;
+        } else {
+            list2.next = mergeTwoLists(list1, list2.next);
+            return list2;
+        }
+    }
+}
+
+
+Output
+![image](https://github.com/user-attachments/assets/ce4728b5-c83e-48d0-b4b7-689d0c35d3cd)
